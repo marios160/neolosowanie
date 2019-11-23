@@ -130,4 +130,9 @@
       <Name>NeoLosowanie</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\NeoLosowanie\Resources\Logo.png">
+      <Link>Resources\Logo.png</Link>
+    </BundleResource>
+  </ItemGroup>
 </Project>

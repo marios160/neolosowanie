@@ -14,8 +14,10 @@ namespace NeoLosowanie.ViewModels.Menu
         }
         public MenuPage()
         {
-            Items.Add(new MenuItem("Home", ImageSource.FromResource("FirstXamarinApp.Home.png"))); //dodanie nowego elementu typu MenuItem
-            Items.Add(new MenuItem("Page2", ImageSource.FromResource("FirstXamarinApp.Home.png")));
+            Items.Add(new MenuItem("Ostatnie losowania", ImageSource.FromResource("FirstXamarinApp.Home.png"))); //dodanie nowego elementu typu MenuItem
+            Items.Add(new MenuItem("Losuj", ImageSource.FromResource("FirstXamarinApp.Home.png")));
+            Items.Add(new MenuItem("Profile losowania", ImageSource.FromResource("FirstXamarinApp.Home.png")));
+            Items.Add(new MenuItem("Zarządzanie osobami", ImageSource.FromResource("FirstXamarinApp.Home.png")));
         }
     }
     public class MenuItem

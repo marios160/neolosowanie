@@ -8,7 +8,7 @@
              Title="Menu">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listView" ItemsSource="{Binding Items}">
+            <ListView x:Name="listView" ItemsSource="{Binding Items}" ItemTapped="listView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ImageCell DetailColor="Aqua" TextColor="Black" Text="{Binding Title}" ImageSource="{Binding IconSource}"/>

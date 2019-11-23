@@ -8,18 +8,12 @@ namespace NeoLosowanie
 {
     public partial class App : Application
     {
-        public static NavigationPage NavigationPage { get; private set; }
+        public static NavigationPage NavigationPage { get; set; }
         public App()
         {
             InitializeComponent();
-
-            NavigationPage = new NavigationPage(new MainPage());
-            RootPage rootPage = new RootPage();
-            MenuPage menuPage = new MenuPage();
-
-            rootPage.Master = menuPage;
-            rootPage.Detail = NavigationPage;
-            MainPage = rootPage;
+            MainPage = new SplashScreen();
+            
         }
 
         protected override void OnStart()

@@ -18,5 +18,24 @@ namespace NeoLosowanie.Views.Menu
             ViewModels.Menu.MenuPage vm = new ViewModels.Menu.MenuPage();
             this.BindingContext = vm;
         }
+
+        private void listView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            switch (e.ItemIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
