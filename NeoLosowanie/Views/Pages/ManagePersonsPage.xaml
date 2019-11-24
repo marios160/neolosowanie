@@ -38,7 +38,7 @@
                 <Frame>
                     <StackLayout>
                         <Label Text="Importuj z tekstu"/>
-                        <Editor x:Name="textArea" HeightRequest="200" tex>
+                        <Editor x:Name="textArea" HeightRequest="200">
                             <Editor.Placeholder>
                                 Wklej listę osób wg wzoru:
 Imię;Nazwisko;Adres e-mail;Numer telefonu
