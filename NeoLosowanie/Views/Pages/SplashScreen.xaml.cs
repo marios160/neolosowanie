@@ -26,7 +26,7 @@ namespace NeoLosowanie.Views.Pages
         {
 
             await vm.LoadData();
-            App.NavigationPage = new NavigationPage(new MainPage());
+            App.NavigationPage = new NavigationPage(new LastDrawsPage());
             RootPage rootPage = new RootPage();
             MenuPage menuPage = new MenuPage();
 

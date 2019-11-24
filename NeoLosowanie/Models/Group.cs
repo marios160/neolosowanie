@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NeoLosowanie.Models
 {
-    class Group
+    public class Group
     {
         public int Id { get; set; }
         public List<Person> PersonList { get; set; } 

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NeoLosowanie.Views.Pages.ManagePersonsPage"
+             Title="Zarządzanie osobami">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout Padding="10,10,10,10">
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Dodaj osobę" FontSize="Large" FontAttributes="Bold"
+                HorizontalOptions="StartAndExpand" />
+                        <FlexLayout Direction="Row" Wrap="Wrap">
+                            <Entry Placeholder="Imię" x:Name="firstName" WidthRequest="150"/>
+                            <Entry Placeholder="Nazwisko" x:Name="lastName" WidthRequest="150"/>
+                            <Entry Placeholder="Numer telefonu" x:Name="phoneNumber" Keyboard="Telephone" WidthRequest="120"/>
+                            <Entry Placeholder="Adres e-mail" x:Name="email" Keyboard="Email" WidthRequest="200"/>
+                            <Picker Title="Małżonek" ItemsSource="{Binding Persons}" ItemDisplayBinding="{Binding Name}" WidthRequest="200"/>
+                        </FlexLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Importuj plik"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="Wybierz plik" Clicked="Button_Clicked"/>
+                            <Label Text="{Binding FileName}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <Label Text="Dodaj z kontaktów"/>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Importuj z tekstu"/>
+                        <Editor x:Name="textArea" HeightRequest="200" tex>
+                            <Editor.Placeholder>
+                                Wklej listę osób wg wzoru:
+Imię;Nazwisko;Adres e-mail;Numer telefonu
+                            </Editor.Placeholder>
+                        </Editor>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

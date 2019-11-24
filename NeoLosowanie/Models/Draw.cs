@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NeoLosowanie.Models
 {
-    class Randomization
+    class Draw
     {
         public int Id { get; set; }
         public string Groups { get; set; }

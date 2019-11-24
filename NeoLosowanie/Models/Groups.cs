@@ -4,9 +4,17 @@ using System.Text;
 
 namespace NeoLosowanie.Models
 {
-    class Groups
+    public class Groups
     {
-
         public List<Group> GroupsList { get; set; }
+
+        public Groups()
+        {
+
+        }
+        public override string ToString()
+        {
+            return "GRUPY";
+        }
     }
 }
