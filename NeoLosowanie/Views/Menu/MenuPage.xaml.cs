@@ -1,4 +1,5 @@
-﻿using NeoLosowanie.Views.Pages;
+﻿using NeoLosowanie.Services;
+using NeoLosowanie.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,7 +34,7 @@ namespace NeoLosowanie.Views.Menu
                 case 2:
                     break;
                 case 3:
-                    SetRootPage(new ManagePersonsPage());
+                    SystemService.SetRootPage(new ManagePersonsPage());
                     break;
                 case 4:
                     break;
@@ -42,15 +43,27 @@ namespace NeoLosowanie.Views.Menu
             }
         }
 
-        public static void SetRootPage(Page page)
+        private void logoutButton_Tapped(object sender, EventArgs e)
         {
-            App.NavigationPage = new NavigationPage(page);
-            RootPage rootPage = new RootPage();
-            MenuPage menuPage = new MenuPage();
+            SystemService.User.Logout();
+            App.Current.MainPage = new LoginPage();
+        }
+        private void infoButton_Tapped(object sender, EventArgs e)
+        {
 
-            rootPage.Master = menuPage;
-            rootPage.Detail = App.NavigationPage;
-            App.Current.MainPage = rootPage;
+        }
+        private void donateButton_Tapped(object sender, EventArgs e)
+        {
+
+        }
+        private void webButton_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }

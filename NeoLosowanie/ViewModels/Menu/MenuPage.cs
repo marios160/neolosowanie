@@ -20,6 +20,13 @@ namespace NeoLosowanie.ViewModels.Menu
             Items.Add(new MenuItem("Zarządzanie osobami", ImageSource.FromResource("FirstXamarinApp.Home.png")));
         }
     }
+
+    private string _User;
+    public string User
+    {
+        get { return _User; }
+        set { Set(() => User, ref _User, value); }
+    }
     public class MenuItem
     {
         public string Title { get; set; }

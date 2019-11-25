@@ -1,17 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="NeoLosowanie.Views.Menu.MenuPage"
-             Title="Menu">
+<ContentPage
+    x:Class="NeoLosowanie.Views.Menu.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fa="clr-namespace:NeoLosowanie.Utils"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Menu"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listView" ItemsSource="{Binding Items}" ItemTapped="listView_ItemTapped">
+            <StackLayout Padding="0,20,10,10" Orientation="Horizontal">
+                <Label
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    FontSize="50"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static fa:FontAwesomeIcons.UserCircle}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="profileButton_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="StartAndExpand"
+                    Text="marios160@o2.pl"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+                <Label
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    FontSize="30"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static fa:FontAwesomeIcons.Donate}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="donateButton_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    FontSize="30"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static fa:FontAwesomeIcons.InfoCircle}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="infoButton_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    FontSize="30"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static fa:FontAwesomeIcons.ExternalLinkAlt}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="webButton_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    FontSize="30"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static fa:FontAwesomeIcons.SignOutAlt}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="logoutButton_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <BoxView
+                Margin="10,0,10,0"
+                HeightRequest="2"
+                HorizontalOptions="FillAndExpand"
+                Color="DarkGray" />
+            <ListView
+                x:Name="listView"
+                ItemTapped="listView_ItemTapped"
+                ItemsSource="{Binding Items}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ImageCell DetailColor="Aqua" TextColor="Black" Text="{Binding Title}" ImageSource="{Binding IconSource}"/>
+                        <ImageCell
+                            DetailColor="Aqua"
+                            ImageSource="{Binding IconSource}"
+                            Text="{Binding Title}"
+                            TextColor="Black" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

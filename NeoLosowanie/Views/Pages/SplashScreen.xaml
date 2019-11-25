@@ -1,27 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="NeoLosowanie.Views.Pages.SplashScreen">
+<ContentPage
+    x:Class="NeoLosowanie.Views.Pages.SplashScreen"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Losowanie grup"
-                   FontSize="50"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"
-                   />
-            <Image Source="Logo.png"
-                   VerticalOptions="StartAndExpand" 
-                   HorizontalOptions="CenterAndExpand"
-                   Aspect="AspectFill"/>
-            <ProgressBar x:Name="progressBar"
-                         IsVisible="True"
-                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="EndAndExpand"
-                         ProgressColor="Black"
-                         />
+            <Label
+                FontSize="50"
+                HorizontalOptions="CenterAndExpand"
+                Text="Losowanie grup"
+                VerticalOptions="CenterAndExpand" />
+            <Image
+                Aspect="AspectFill"
+                HorizontalOptions="CenterAndExpand"
+                Source="Logo.png"
+                VerticalOptions="StartAndExpand" />
+            <ProgressBar
+                x:Name="progressBar"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="True"
+                ProgressColor="Black"
+                VerticalOptions="EndAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NeoLosowanie.Views.Pages.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Button
+                    x:Name="skipButton"
+                    BackgroundColor="Transparent"
+                    Clicked="skipButton_Clicked"
+                    HorizontalOptions="End"
+                    Text="Pomiń" />
+                <StackLayout Padding="30,0,30,30">
+
+                    <Label
+                        FontSize="40"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Zaloguj się" />
+                    <Entry
+                        x:Name="login"
+                        Keyboard="Email"
+                        Placeholder="Adres e-mail" />
+                    <Entry
+                        x:Name="password"
+                        IsPassword="True"
+                        Placeholder="Hasło" />
+                    <Button
+                        x:Name="loginButton"
+                        BackgroundColor="LightGreen"
+                        Clicked="loginButton_Clicked"
+                        CornerRadius="10"
+                        Text="Zaloguj" />
+                </StackLayout>
+                <StackLayout Padding="30,0,30,30">
+
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Nie masz jeszcze konta?" />
+                    <Entry
+                        x:Name="passwordRepeat"
+                        IsPassword="True"
+                        Placeholder="Powtórz hasło" />
+                    <Button
+                        x:Name="registerButton"
+                        Clicked="registerButton_Clicked"
+                        CornerRadius="10"
+                        Text="Rejestruj" />
+                    <Label Text="Dlaczego warto mieć konto?" />
+                    <Label Text="Po zarejestrowaniu wszystkie twoje losowania i dane aplikacji są zapisywane na serwerze." />
+                    <Label Text="Jeśli zainstalujesz aplikacje ponownie na innym urządzeniu, będziesz mógł pobrać wszystkie dane." />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

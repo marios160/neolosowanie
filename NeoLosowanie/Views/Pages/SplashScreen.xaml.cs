@@ -1,10 +1,5 @@
-﻿using NeoLosowanie.Views.Menu;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using NeoLosowanie.Repositories;
+using NeoLosowanie.Services;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,25 +9,35 @@ namespace NeoLosowanie.Views.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SplashScreen : ContentPage
     {
-        ViewModels.Pages.SplashScreen vm;
-        public SplashScreen()
+        private bool Skip { get; set; }
+        public SplashScreen(bool skip = false)
         {
+            Skip = skip;
             InitializeComponent();
-            vm = new ViewModels.Pages.SplashScreen(progressBar);
-            this.BindingContext = vm;
+            DataBase db = new DataBase();
         }
 
         protected async override void OnAppearing()
         {
+            if (Skip)
+            {
+                await DataService.LoadData(this.progressBar);
+                SystemService.SetRootPage(new LastDrawsPage());
+            }
+            else
+            {
 
-            await vm.LoadData();
-            App.NavigationPage = new NavigationPage(new LastDrawsPage());
-            RootPage rootPage = new RootPage();
-            MenuPage menuPage = new MenuPage();
-
-            rootPage.Master = menuPage;
-            rootPage.Detail = App.NavigationPage;
-            App.Current.MainPage = rootPage;
+                SystemService.User = UserRepository.FindByIsLogged();
+                if (SystemService.User == null)
+                {
+                    App.Current.MainPage = new LoginPage();
+                }
+                else
+                {
+                    await DataService.LoadData(this.progressBar);
+                    SystemService.SetRootPage(new LastDrawsPage());
+                }
+            }
             base.OnAppearing();
         }
     }
