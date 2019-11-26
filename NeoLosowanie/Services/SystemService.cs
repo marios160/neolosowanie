@@ -3,6 +3,7 @@ using NeoLosowanie.Views.Menu;
 using NeoLosowanie.Views.Pages;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using Xamarin.Forms;
@@ -42,6 +43,11 @@ namespace NeoLosowanie.Services
             }
 
             return strBuilder.ToString();
+        }
+
+        public static ImageSource Base64ToImageSource(string base64)
+        {
+            return ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(base64)));
         }
     }
 }

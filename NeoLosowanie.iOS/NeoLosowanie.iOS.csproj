@@ -136,4 +136,24 @@
       <Link>Resources\Logo.png</Link>
     </BundleResource>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\NeoLosowanie\Resources\list.png">
+      <Link>Resources\list.png</Link>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\NeoLosowanie\Resources\random.png">
+      <Link>Resources\random.png</Link>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\NeoLosowanie\Resources\settings.png">
+      <Link>Resources\settings.png</Link>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\NeoLosowanie\Resources\users.png">
+      <Link>Resources\users.png</Link>
+    </BundleResource>
+  </ItemGroup>
 </Project>

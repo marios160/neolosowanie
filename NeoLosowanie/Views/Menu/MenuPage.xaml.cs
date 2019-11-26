@@ -61,7 +61,7 @@ namespace NeoLosowanie.Views.Menu
 
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void profileButton_Tapped(object sender, EventArgs e)
         {
 
         }

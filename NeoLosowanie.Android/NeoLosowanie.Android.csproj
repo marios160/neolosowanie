@@ -93,7 +93,11 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="..\NeoLosowanie\Resources\list.png">
+      <Link>Resources\drawable\list.png</Link>
+    </AndroidResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeoLosowanie\NeoLosowanie.csproj">
       <Project>{A702A351-1C33-4FB7-A242-969774D272ED}</Project>
@@ -103,6 +107,21 @@
   <ItemGroup>
     <AndroidResource Include="..\NeoLosowanie\Resources\Logo.png">
       <Link>Resources\drawable\Logo.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NeoLosowanie\Resources\random.png">
+      <Link>Resources\drawable\random.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NeoLosowanie\Resources\settings.png">
+      <Link>Resources\drawable\settings.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NeoLosowanie\Resources\users.png">
+      <Link>Resources\drawable\users.png</Link>
     </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

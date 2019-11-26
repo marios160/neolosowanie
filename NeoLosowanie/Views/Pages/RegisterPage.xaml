@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NeoLosowanie.Views.Pages.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                x:Name="loginButton"
+                BackgroundColor="Transparent"
+                Clicked="loginButton_Clicked"
+                HorizontalOptions="End"
+                Text="Logowanie" />
+            <StackLayout Padding="30,0,30,30" VerticalOptions="FillAndExpand">
+                <Label
+                    FontSize="40"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Rejestracja"
+                    VerticalOptions="Start" />
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Entry
+                        x:Name="login"
+                        Keyboard="Email"
+                        Placeholder="Adres e-mail" />
+                    <Entry
+                        x:Name="password"
+                        IsPassword="True"
+                        Placeholder="Hasło" />
+                    <Entry
+                        x:Name="passwordRepeat"
+                        IsPassword="True"
+                        Placeholder="Powtórz hasło" />
+                </StackLayout>
+                <Button
+                    x:Name="registerButton"
+                    BackgroundColor="LightGreen"
+                    Clicked="registerButton_Clicked"
+                    CornerRadius="10"
+                    Text="Rejestruj"
+                    VerticalOptions="StartAndExpand" />
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
