@@ -26,9 +26,9 @@ namespace NeoLosowanie.Views.Menu
 
         protected override void OnAppearing()
         {
-            if(vm.Communities.Count > 0 )
+            if(vm.Collections.Count > 0 )
             {
-                SystemService.Community = vm.Community = vm.Communities[0];
+                SystemService.Collection = vm.Collection = vm.Collections[0];
             }
             else
             {

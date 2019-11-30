@@ -18,7 +18,7 @@ namespace NeoLosowanie.Views.Pages
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            if (nameCommunity.Text.Trim().Length > 0)
+            if (nameCommunity.Text != null && nameCommunity.Text.Trim().Length > 0)
             {
                 Collection community = new Collection();
                 community.Name = nameCommunity.Text.Trim();
@@ -26,6 +26,10 @@ namespace NeoLosowanie.Views.Pages
                 CollectionRepository.Insert(community);
                 DisplayAlert("Sukces", "Dodano zbiór: " + community.Name, "OK");
                 SystemService.SetRootPage(new LastDrawsPage());
+            }
+            else
+            {
+                DisplayAlert("Błąd", "Pole 'Nazwa zbioru' nie może być puste!", "OK");
             }
         }
     }

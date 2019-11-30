@@ -14,12 +14,13 @@ namespace NeoLosowanie.Services
         public DataBase()
         {
             db = new SQLiteConnection(DbPath);
-            db.DropTable<User>();
-            db.DropTable<Collection>();
-            db.DropTable<Person>();
+            //db.DropTable<User>();
+            //db.DropTable<Collection>();
+            //db.DropTable<Person>();
             db.CreateTable<User>();
             db.CreateTable<Collection>();
             db.CreateTable<Person>();
+            db.CreateTable<Marriage>();
         }
     }
 }

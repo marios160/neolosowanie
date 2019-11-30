@@ -83,8 +83,8 @@
                     FontSize="Large"
                     HorizontalOptions="FillAndExpand"
                     ItemDisplayBinding="{Binding Name}"
-                    ItemsSource="{Binding Communities}"
-                    SelectedItem="{Binding Community}" />
+                    ItemsSource="{Binding Collections}"
+                    SelectedItem="{Binding Collection}" />
             </StackLayout>
             <BoxView
                 Margin="10,0,10,0"

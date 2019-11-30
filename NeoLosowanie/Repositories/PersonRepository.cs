@@ -21,9 +21,9 @@ namespace NeoLosowanie.Repositories
             return DataBase.db.Table<Person>().Where(u => u.Email == email).FirstOrDefault();
         }
 
-        internal static Person FindAllByCommunity(Collection community)
+        internal static List<Person> FindAllByIsMarriage(bool isMarriage)
         {
-            return DataBase.db.Table<Person>().Where(u => u.CollectionId == community.Id).FirstOrDefault();
+            return DataBase.db.Table<Person>().Where(u => u.CollectionId == SystemService.Collection.Id && u.IsMarriage == isMarriage).ToList();
         }
 
         internal static int Insert(Person person)

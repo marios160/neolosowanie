@@ -14,13 +14,15 @@ namespace NeoLosowanie.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        public bool IsMarriage { get; set; }
+        public string Name { get { return LastName + " " + FirstName; }}
 
         public Person()
         {
         }
-        public Person(int clientId = 0)
+        public Person(int collectionId = 0)
         {
-            this.CollectionId = clientId;
+            this.CollectionId = collectionId;
         }
 
     }

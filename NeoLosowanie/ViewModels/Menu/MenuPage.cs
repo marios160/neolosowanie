@@ -25,7 +25,7 @@ namespace NeoLosowanie.ViewModels.Menu
             Items.Add(new MenuItem("Zarządzanie osobami", ImageSource.FromFile("users.png")));
             if (SystemService.User != null)
                 this.User = SystemService.User.Email;
-            this.Communities = CollectionRepository.FindAll();
+            this.Collections = CollectionRepository.FindAll();
 
         }
 
@@ -36,18 +36,18 @@ namespace NeoLosowanie.ViewModels.Menu
             set { Set(() => User, ref _User, value); }
         }
 
-        private List<Collection> _Communities;
-        public List<Collection> Communities
+        private List<Collection> _Collections;
+        public List<Collection> Collections
         {
-            get { return _Communities; }
-            set { Set(() => Communities, ref _Communities, value); }
+            get { return _Collections; }
+            set { Set(() => Collections, ref _Collections, value); }
         }
 
-        private Collection _Community;
-        public Collection Community
+        private Collection _Collection;
+        public Collection Collection
         {
-            get { return _Community; }
-            set { Set(() => Community, ref _Community, value); }
+            get { return _Collection; }
+            set { Set(() => Collection, ref _Collection, value); }
         }
     }
     public class MenuItem

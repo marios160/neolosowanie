@@ -16,9 +16,9 @@ namespace NeoLosowanie.Services
             await progressBar.ProgressTo(0.1, 100, Easing.SpringOut);
             List<Collection> list = CollectionRepository.FindAll();
             if(list.Count > 0)
-                SystemService.Community = list[0];
+                SystemService.Collection = list[0];
             else
-                SystemService.Community = null;
+                SystemService.Collection = null;
 
             await progressBar.ProgressTo(1, 900, Easing.SpringOut);
         }

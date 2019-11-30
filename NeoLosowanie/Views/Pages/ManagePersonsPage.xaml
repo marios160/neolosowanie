@@ -3,10 +3,14 @@
     x:Class="NeoLosowanie.Views.Pages.ManagePersonsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnv="clr-namespace:NeoLosowanie.Converters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Zarządzanie osobami"
     mc:Ignorable="d">
+    <ContentPage.Resources>
+        <cnv:InverseBooleanConverter x:Key="Inverse" />
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
 
@@ -20,65 +24,103 @@
                             Text="Dodaj osobę" />
                         <FlexLayout Direction="Row" Wrap="Wrap">
                             <Entry
-                                x:Name="firstName"
-                                Placeholder="Imię"
-                                WidthRequest="150" />
-                            <Entry
                                 x:Name="lastName"
                                 Placeholder="Nazwisko"
+                                WidthRequest="150" />
+                            <Entry
+                                x:Name="firstName"
+                                Placeholder="Imię"
+                                Text=""
                                 WidthRequest="150" />
                             <Entry
                                 x:Name="phoneNumber"
                                 Keyboard="Telephone"
                                 Placeholder="Numer telefonu"
+                                Text=""
                                 WidthRequest="120" />
                             <Entry
                                 x:Name="email"
                                 Keyboard="Email"
                                 Placeholder="Adres e-mail"
+                                Text=""
                                 WidthRequest="200" />
                         </FlexLayout>
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout x:Name="ifMarriageStack" Orientation="Horizontal">
                             <CheckBox x:Name="ifMarriage" CheckedChanged="ifMarriage_CheckedChanged" />
                             <Label Text="Dodaj małżonka" VerticalTextAlignment="Center" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ifMarriageStack_Tapped" />
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
-                        <FlexLayout
-                            Direction="Row"
-                            IsVisible="{Binding AddSupose}"
-                            Wrap="Wrap">
+                        <StackLayout IsVisible="{Binding AddSupose}">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Switch
+                                    x:Name="switchAdd"
+                                    IsToggled="{Binding AddExist}"
+                                    Toggled="switch_Toggled" />
+                                <Label
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding SwitchText}"
+                                    VerticalTextAlignment="Center" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="switchStack_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
                             <Picker
                                 x:Name="marriagePicker"
                                 Title="Wybierz małżonka już dodanego"
+                                IsVisible="{Binding AddExist}"
                                 ItemDisplayBinding="{Binding Name}"
                                 ItemsSource="{Binding Persons}"
                                 WidthRequest="200" />
-                            <Entry
-                                x:Name="firstNameSupose"
-                                Placeholder="Imię"
-                                WidthRequest="150" />
-                            <Entry
-                                x:Name="lastNameSupose"
-                                Placeholder="Nazwisko"
-                                WidthRequest="150" />
-                            <Entry
-                                x:Name="phoneNumberSupose"
-                                Keyboard="Telephone"
-                                Placeholder="Numer telefonu"
-                                WidthRequest="120" />
-                            <Entry
-                                x:Name="emailSupose"
-                                Keyboard="Email"
-                                Placeholder="Adres e-mail"
-                                WidthRequest="200" />
-                        </FlexLayout>
-                        <Button x:Name="btnAddPerson" Text="Dodaj" />
+                            <FlexLayout
+                                Direction="Row"
+                                IsVisible="{Binding AddExist, Converter={StaticResource Inverse}}"
+                                Wrap="Wrap">
+                                <Entry
+                                    x:Name="lastNameSupose"
+                                    Placeholder="Nazwisko"
+                                    WidthRequest="150" />
+                                <Entry
+                                    x:Name="firstNameSupose"
+                                    Placeholder="Imię"
+                                    Text=""
+                                    WidthRequest="150" />
+                                <Entry
+                                    x:Name="phoneNumberSupose"
+                                    Keyboard="Telephone"
+                                    Placeholder="Numer telefonu"
+                                    Text=""
+                                    WidthRequest="120" />
+                                <Entry
+                                    x:Name="emailSupose"
+                                    Keyboard="Email"
+                                    Placeholder="Adres e-mail"
+                                    Text=""
+                                    WidthRequest="200" />
+                            </FlexLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Button
+                                x:Name="btnAddPerson"
+                                Clicked="btnAddPerson_Clicked"
+                                Text="Dodaj" />
+                            <Label
+                                x:Name="dodanoOsobeLabel"
+                                IsVisible="{Binding AddedLabel}"
+                                TextColor="Green"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
                 <Frame>
                     <StackLayout>
                         <Label Text="Importuj plik" />
                         <StackLayout Orientation="Horizontal">
-                            <Button Clicked="Button_Clicked" Text="Wybierz plik" />
+                            <Button
+                                x:Name="importFile"
+                                Clicked="importFile_Clicked"
+                                Text="Wybierz plik" />
                             <Label Text="{Binding FileName}" />
                         </StackLayout>
                     </StackLayout>

@@ -14,7 +14,7 @@ namespace NeoLosowanie.Services
     class SystemService
     {
         public static User User { get; set; }
-        public static Collection Community { get; set; }
+        public static Collection Collection { get; set; }
         public static void SetRootPage(Page page)
         {
             App.NavigationPage = new NavigationPage(page);
