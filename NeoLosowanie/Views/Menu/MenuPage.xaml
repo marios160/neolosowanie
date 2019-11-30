@@ -70,6 +70,27 @@
                 HeightRequest="2"
                 HorizontalOptions="FillAndExpand"
                 Color="DarkGray" />
+            <StackLayout
+                Padding="10,0,10,0"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal">
+                <Label
+                    FontSize="Large"
+                    Text="Zbiór:"
+                    VerticalOptions="CenterAndExpand" />
+                <Picker
+                    Title="Lista zbiorów"
+                    FontSize="Large"
+                    HorizontalOptions="FillAndExpand"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding Communities}"
+                    SelectedItem="{Binding Community}" />
+            </StackLayout>
+            <BoxView
+                Margin="10,0,10,0"
+                HeightRequest="2"
+                HorizontalOptions="FillAndExpand"
+                Color="DarkGray" />
             <ListView
                 x:Name="listView"
                 ItemTapped="listView_ItemTapped"

@@ -37,12 +37,41 @@
                                 Keyboard="Email"
                                 Placeholder="Adres e-mail"
                                 WidthRequest="200" />
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="ifMarriage" CheckedChanged="ifMarriage_CheckedChanged" />
+                            <Label Text="Dodaj małżonka" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <FlexLayout
+                            Direction="Row"
+                            IsVisible="{Binding AddSupose}"
+                            Wrap="Wrap">
                             <Picker
-                                Title="Małżonek"
+                                x:Name="marriagePicker"
+                                Title="Wybierz małżonka już dodanego"
                                 ItemDisplayBinding="{Binding Name}"
                                 ItemsSource="{Binding Persons}"
                                 WidthRequest="200" />
+                            <Entry
+                                x:Name="firstNameSupose"
+                                Placeholder="Imię"
+                                WidthRequest="150" />
+                            <Entry
+                                x:Name="lastNameSupose"
+                                Placeholder="Nazwisko"
+                                WidthRequest="150" />
+                            <Entry
+                                x:Name="phoneNumberSupose"
+                                Keyboard="Telephone"
+                                Placeholder="Numer telefonu"
+                                WidthRequest="120" />
+                            <Entry
+                                x:Name="emailSupose"
+                                Keyboard="Email"
+                                Placeholder="Adres e-mail"
+                                WidthRequest="200" />
                         </FlexLayout>
+                        <Button x:Name="btnAddPerson" Text="Dodaj" />
                     </StackLayout>
                 </Frame>
                 <Frame>

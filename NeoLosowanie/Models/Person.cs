@@ -9,18 +9,18 @@ namespace NeoLosowanie.Models
     {
         [PrimaryKey,Unique, AutoIncrement]
         public int Id { get; set; }
-        public int ClientId { get; set; }
+        public int CollectionId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int SupouseId { get; set; }
-        [Ignore]
-        public Person Spouse { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
+        public Person()
+        {
+        }
         public Person(int clientId = 0)
         {
-            this.ClientId = clientId;
+            this.CollectionId = clientId;
         }
 
     }

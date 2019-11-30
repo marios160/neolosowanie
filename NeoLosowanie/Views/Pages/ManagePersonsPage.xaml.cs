@@ -12,17 +12,23 @@ namespace NeoLosowanie.Views.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ManagePersonsPage : ContentPage
     {
+        ViewModels.Pages.ManagePersonsPage vm;
         public ManagePersonsPage()
         {
             InitializeComponent();
 
-            ViewModels.Pages.ManagePersonsPage vm = new ViewModels.Pages.ManagePersonsPage();
+            vm = new ViewModels.Pages.ManagePersonsPage();
             this.BindingContext = vm;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private void ifMarriage_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            vm.AddSupose = (sender as CheckBox).IsChecked;
         }
     }
 }

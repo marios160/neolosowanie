@@ -1,4 +1,5 @@
-﻿using NeoLosowanie.Services;
+﻿using NeoLosowanie.Repositories;
+using NeoLosowanie.Services;
 using NeoLosowanie.Views.Pages;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,25 @@ namespace NeoLosowanie.Views.Menu
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
+        ViewModels.Menu.MenuPage vm;
         public MenuPage()
         {
             InitializeComponent();
-            ViewModels.Menu.MenuPage vm = new ViewModels.Menu.MenuPage();
+            vm = new ViewModels.Menu.MenuPage();
             this.BindingContext = vm;
+        }
+
+        protected override void OnAppearing()
+        {
+            if(vm.Communities.Count > 0 )
+            {
+                SystemService.Community = vm.Community = vm.Communities[0];
+            }
+            else
+            {
+                App.Current.MainPage = new NewCommunityPage();
+            }
+            base.OnAppearing();
         }
 
         private void listView_ItemTapped(object sender, ItemTappedEventArgs e)

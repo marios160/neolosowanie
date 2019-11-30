@@ -1,4 +1,5 @@
 ﻿using NeoLosowanie.Models;
+using NeoLosowanie.Repositories;
 using NeoLosowanie.Views.Menu;
 using NeoLosowanie.Views.Pages;
 using System;
@@ -13,6 +14,7 @@ namespace NeoLosowanie.Services
     class SystemService
     {
         public static User User { get; set; }
+        public static Collection Community { get; set; }
         public static void SetRootPage(Page page)
         {
             App.NavigationPage = new NavigationPage(page);
@@ -22,6 +24,7 @@ namespace NeoLosowanie.Services
             rootPage.Master = menuPage;
             rootPage.Detail = App.NavigationPage;
             App.Current.MainPage = rootPage;
+
         }
 
         public static string MD5Hash(string text)

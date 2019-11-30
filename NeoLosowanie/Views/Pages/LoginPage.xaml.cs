@@ -43,6 +43,9 @@ namespace NeoLosowanie.Views.Pages
 
         private void skipButton_Clicked(object sender, EventArgs e)
         {
+            SystemService.User = new Models.User();
+            SystemService.User.Id = 0;
+            SystemService.User.Email = "Użytkownik niezarejestrowany";
             App.Current.MainPage = new SplashScreen(true);
         }
 

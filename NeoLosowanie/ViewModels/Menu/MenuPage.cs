@@ -1,5 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
+using NeoLosowanie.Models;
+using NeoLosowanie.Repositories;
 using NeoLosowanie.Services;
+using NeoLosowanie.Views.Pages;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
@@ -19,8 +23,10 @@ namespace NeoLosowanie.ViewModels.Menu
             Items.Add(new MenuItem("Losuj", ImageSource.FromFile("random.png")));
             Items.Add(new MenuItem("Profile losowania", ImageSource.FromFile("settings.png")));
             Items.Add(new MenuItem("Zarządzanie osobami", ImageSource.FromFile("users.png")));
-            if(SystemService.User != null)
+            if (SystemService.User != null)
                 this.User = SystemService.User.Email;
+            this.Communities = CollectionRepository.FindAll();
+
         }
 
         private string _User;
@@ -28,6 +34,20 @@ namespace NeoLosowanie.ViewModels.Menu
         {
             get { return _User; }
             set { Set(() => User, ref _User, value); }
+        }
+
+        private List<Collection> _Communities;
+        public List<Collection> Communities
+        {
+            get { return _Communities; }
+            set { Set(() => Communities, ref _Communities, value); }
+        }
+
+        private Collection _Community;
+        public Collection Community
+        {
+            get { return _Community; }
+            set { Set(() => Community, ref _Community, value); }
         }
     }
     public class MenuItem

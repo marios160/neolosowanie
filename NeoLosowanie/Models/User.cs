@@ -10,6 +10,8 @@ namespace NeoLosowanie.Models
     public class User
     {
         [PrimaryKey,Unique]
+        public int Id { get; set; }
+        [Unique]
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string PasswordMD5 { get; set; }
